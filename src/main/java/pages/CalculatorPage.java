@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 public class CalculatorPage extends BasePage{
@@ -45,11 +46,17 @@ public class CalculatorPage extends BasePage{
     }
     public CalculatorPage checkCustomsClearenceCost(){
         // 4649 €
-        StringBuilder findedPrice = new StringBuilder();
-        findedPrice.append(driver.findElement(fieldPriceResult).getText());
-        System.out.println(findedPrice);
 
-//        Assert.assertEquals(findedPrice.toString(),"4649 €");
+
+        StringBuilder findedPrice = new StringBuilder();
+//        WebElement allPrice = driver.findElement(fieldPriceResult);
+        waitElementIsWisible(fieldPriceResult);
+//        findedPrice.append(driver.findElement(fieldPriceResult).getText());
+//        System.out.println(driver.findElement(fieldPriceResult).getText());
+        System.out.println("test");
+        System.out.println(driver.findElement(fieldPriceResult).getText());
+
+        Assert.assertEquals(driver.findElement(fieldPriceResult).getText(),"4649 €");
         return this;
     }
 }

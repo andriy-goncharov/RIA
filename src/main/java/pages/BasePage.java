@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -20,8 +21,8 @@ public class BasePage {
         driver.get(url);
     }
 
-    public WebElement waitElementIsWisible(WebElement element){
-        new WebDriverWait(this.driver, Duration.ofSeconds(EXPLICIT_WAIT)).until(ExpectedConditions.visibilityOf(element));
+    public By waitElementIsWisible(By element){
+        new WebDriverWait(this.driver, Duration.ofSeconds(EXPLICIT_WAIT)).until(ExpectedConditions.visibilityOfElementLocated(element));
         return element;
     }
 }
