@@ -2,10 +2,9 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
-public class CalculatorPage extends BasePage{
+public class CalculatorPage extends BasePage {
     public CalculatorPage(WebDriver driver) {
         super(driver);
     }
@@ -15,48 +14,49 @@ public class CalculatorPage extends BasePage{
     private final By ageAuto = By.cssSelector("#leftFilterAge > option:nth-child(2)");
     private final By price = By.name("price");
     private final By vEngine = By.cssSelector("#leftFilterEngine");
-    private final By btnResult = By.cssSelector("#catalogsCustomCalculator > form > div.calc > aside > div.form-fields > button");
-    private final By fieldPriceResult = By.cssSelector("#catalogsCustomCalculator > form > div.calc > div > div.calc-table.result > ul > li:nth-child(5) > div > span.casual");
+    private final By btnResult = By.cssSelector("#catalogsCustomCalculator > form > div.calc > aside > div" +
+            ".form-fields > button");
+    private final By fieldPriceResult = By.cssSelector("#catalogsCustomCalculator > form > div.calc > div > div" +
+            ".calc-table.result > ul > li:nth-child(5) > div > span.casual");
 
 
-
-    public CalculatorPage selectFuel(){
+    public CalculatorPage selectFuel() {
         driver.findElement(fuelPetrol).click();
         return this;
     }
-    public CalculatorPage selectCountryOfOriginES(){
+
+    public CalculatorPage selectCountryOfOriginES() {
         driver.findElement(countryOriginES).click();
         return this;
     }
-    public CalculatorPage selectAgeAuto(){
+
+    public CalculatorPage selectAgeAuto() {
         driver.findElement(ageAuto).click();
         return this;
     }
-    public CalculatorPage enterCostAbroad(){
+
+    public CalculatorPage enterCostAbroad() {
         driver.findElement(price).sendKeys("3500");
         return this;
     }
-    public CalculatorPage enterEngineDislacement(){
+
+    public CalculatorPage enterEngineDislacement() {
         driver.findElement(vEngine).sendKeys("1500");
         return this;
     }
-    public CalculatorPage pushBtnResult(){
+
+    public CalculatorPage pushBtnResult() {
         driver.findElement(btnResult).click();
         return this;
     }
-    public CalculatorPage checkCustomsClearenceCost(){
+
+    public CalculatorPage checkCustomsClearenceCost() {
         // 4649 €
-
-
         StringBuilder findedPrice = new StringBuilder();
-//        WebElement allPrice = driver.findElement(fieldPriceResult);
         waitElementIsWisible(fieldPriceResult);
-//        findedPrice.append(driver.findElement(fieldPriceResult).getText());
-//        System.out.println(driver.findElement(fieldPriceResult).getText());
-        System.out.println("test");
-        System.out.println(driver.findElement(fieldPriceResult).getText());
+        System.out.println();
+        Assert.assertEquals(driver.findElement(fieldPriceResult).getText(), "4649 €");
 
-        Assert.assertEquals(driver.findElement(fieldPriceResult).getText(),"4649 €");
         return this;
     }
 }
