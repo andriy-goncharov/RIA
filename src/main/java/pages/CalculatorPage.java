@@ -48,7 +48,7 @@ public class CalculatorPage extends BasePage{
         StringBuilder findedPrice = new StringBuilder();
         findedPrice.append(driver.findElement(fieldPriceResult).getText());
         System.out.println(findedPrice);
-        System.out.println("test");
+
 //        Assert.assertEquals(findedPrice.toString(),"4649 €");
         return this;
     }
