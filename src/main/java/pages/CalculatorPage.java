@@ -14,8 +14,8 @@ public class CalculatorPage extends BasePage {
     private final By ageAuto = By.cssSelector("#leftFilterAge > option:nth-child(2)");
     private final By price = By.name("price");
     private final By vEngine = By.cssSelector("#leftFilterEngine");
-    private final By btnResult = By.cssSelector("#catalogsCustomCalculator > form > div.calc > aside > div" +
-            ".form-fields > button");
+//    private final By btnResult = By.cssSelector("div.form-fields >.calc-btn .button .unlink");
+    private final By btnResult = By.cssSelector("#catalogsCustomCalculator > form > div.calc > aside > div.form-fields > button");
     private final By fieldPriceResult = By.cssSelector("#catalogsCustomCalculator > form > div.calc > div > div" +
             ".calc-table.result > ul > li:nth-child(5) > div > span.casual");
 
